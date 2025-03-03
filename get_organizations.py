@@ -5,7 +5,7 @@ api_key = "dda3ddba-c9ea-4ead-9010-f43fbc15c6e3"
 search_api_server = "https://search-maps.yandex.ru/v1/"
 
 
-def get_organizations(address_ll):
+def get_organizations(address_ll, qty):
     search_params = {
         "apikey": api_key,
         "text": "аптека",
@@ -23,5 +23,5 @@ def get_organizations(address_ll):
 
     json_response = response.json()
 
-    organization = json_response["features"][0]
+    organization = json_response["features"][:qty]
     return organization
